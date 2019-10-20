@@ -5,6 +5,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     app = express();
 
+//Database connection established
 mongoose.connect("mongodb://localhost/blog_app", { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false);
 app.set("view engine", "ejs");
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
+//Database Schema establised
 var BlogSchema = new mongoose.Schema({
     title: String,
     image: String,
